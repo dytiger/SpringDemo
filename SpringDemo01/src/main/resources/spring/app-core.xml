@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--
+        声明了一个org.forten.sample.bean.Car类型的Bean，名为qq
+    -->
+    <bean id="qq" class="org.forten.sample.org.forten.sample.bean.Car">
+        <!-- 通过构造器参数名称进行属性的注入 -->
+        <!--<constructor-arg name="name">-->
+        <!--<value>QQ</value>-->
+        <!--</constructor-arg>-->
+        <!--<constructor-arg name="price" value="80000"/>-->
+        <!--<constructor-arg name="speed" value="80"/>-->
+
+        <!-- 通过构造器参数位置索引进行属性的注入 -->
+        <!--<constructor-arg index="0" value="Test" />-->
+        <!--<constructor-arg index="1" value="1000" />-->
+        <!--<constructor-arg index="2" value="100" />-->
+
+        <!-- 通过构造器参数类型进行属性的注入 -->
+        <constructor-arg type="java.lang.String" value="QQ"/>
+        <constructor-arg type="int" value="5000"/>
+        <constructor-arg type="int" value="120"/>
+    </bean>
+
+    <bean id="lh" class="org.forten.sample.org.forten.sample.bean.Car">
+        <!-- 通过属性的set方法进行值的注入 -->
+        <property name="name">
+            <value>路虎</value>
+        </property>
+        <property name="price" value="100000"/>
+        <property name="speed" value="180"/>
+    </bean>
+
+    <bean id="zl" class="org.forten.sample.org.forten.sample.bean.Driver">
+        <property name="name">
+            <!-- value标签只能注入String类型和基本数据类型的值 -->
+            <value>张辽</value>
+        </property>
+
+        <!-- 如果要注入的属性类型不是String或基本数据类型，则要使用ref属性进行注入 -->
+        <property name="car" ref="lh" />
+    </bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="org.forten.sample" />
+
+    <bean id="lh" class="org.forten.sample.bean.Car">
+        <property name="name" value="路虎" />
+        <property name="price" value="500000" />
+        <property name="speed" value="120" />
+    </bean>
+
+    <!-- 在外部的XML中可以声明与类中注解方式配置的Bean相同的id -->
+    <!-- 用于覆盖注解方式配置的值 -->
+    <bean id="qq" class="org.forten.sample.bean.Car">
+        <property name="name" value="QQ二代" />
+        <property name="price" value="120000" />
+        <property name="speed" value="100" />
+    </bean>
+</beans>
