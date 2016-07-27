@@ -98,6 +98,14 @@ public class User {
         this.valCode = valCode;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRegistTime(Date registTime) {
+        this.registTime = registTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
